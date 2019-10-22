@@ -190,12 +190,11 @@ void pop(Array **head)
 
 int main ()
 {
-	int a;
-	int symbol;
+	
 	struct Node *first=NULL,*tmp=NULL,*prev=NULL,*start=NULL,*tmpnext=NULL;
 	struct Node *num=NULL;
 	struct Array *head=NULL,*tmpdel=NULL;
-	int t,n,minrun,remain,nnew;
+	int n,minrun,remain,nnew;
     
   	first = new struct Node;	
     
@@ -203,17 +202,25 @@ int main ()
 	first->prev=NULL;
 	prev=first;
 	n=1;
-	while (symbol != 0)
-	{
-		cout<< "Enter a number: ";
-		cin >> symbol;
+	int A,N, M;
+	cout<<"Enter the size N:";
+	cin>> N;
+	int* mass= new int[N];
+	srand(time(NULL));
+	cout<<"Range of values from 0 to M. Enter the M:";
+	cin>>M;
+	for(int i=0; i<N; i++)
+	{	
+	   A=rand()%M;		
+		mass[i]=A;
+		
 		tmp= new struct Node;
-		tmp->data = symbol;
+		tmp->data = A;
 		tmp->prev = prev;
 		prev->next = tmp;
-		prev = tmp;
+		prev = tmp;	
 		n++;
-	}
+	} 
 	
 	tmp->next=NULL;
 	
